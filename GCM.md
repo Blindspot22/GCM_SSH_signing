@@ -74,6 +74,45 @@ GCM is available to install as a cross-platform .NET tool. This is the preferred
 **Note**: Make sure you have installed **version 7.0** of the .NET SDK before attempting to run the following dotnet tool commands. After installing, you will also need to follow the output instructions to add the tools directory to your PATH.
 
 ## Usage
+### Configuring GCM
+After installing Git Credential Manager (GCM), you need to configure it to manage your credentials. Run the following command to configure GCM with Git:
+```sh
+git-credential-manager configure
+```
+This command sets up GCM as the default credential manager for Git.
+### Using GCM with Git
+Once GCM is configured, it will automatically handle credential storage and retrieval for you. When you perform a Git operation that requires authentication, GCM will prompt you to sign in if necessary, and then securely store your credentials.
+For example, to clone a repository:
+```sh
+git clone https://github.com/username/repository.git
+```
+GCM will prompt you to enter your credentials if they are not already stored.
+### Managing Credentials
+You can manage your stored credentials through GCM's built-in commands. To view all stored credentials, run:
+```sh
+git-credential-manager list
+```
+To remove a specific credential:
+```sh
+git-credential-manager erase
+```
+You will be prompted to enter the URL for which you want to erase the credentials.
+### Configuring Credential Store
+If you need to change the credential store, you can set the GCM_CREDENTIAL_STORE environment variable or use the Git configuration setting credential.credentialStore. For example, to use the GPG credential store:
+```sh
+git config --global credential.credentialStore gpg
+```
+### Updating GCM
+To keep GCM up to date, use the appropriate update command based on your installation method.
+
+For Homebrew on macOS:
+```sh
+brew upgrade --cask git-credential-manager
+```
+For .NET tool:
+```sh
+dotnet tool update -g git-credential-manager
+```
 ## Automatic SSH Signing
 To have git automatically sign stuffs such as commits, here are the steps you will have to follow
 - Create and SSH key pair
