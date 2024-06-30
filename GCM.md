@@ -127,9 +127,12 @@ For example, for ED25519:
 For 2048-bit RSA: 
 ```ssh-keygen -t rsa -b 2048 -C "<comment>"```
 
-Then press ```Enter``` to the following prompts
-![](./Pasted%20image.png)
-you can also associate a password to your keys or just press Enter for no password
+Then press ```Enter``` to the following prompts.<br>
+
+![](./Pasted%20image.png).<br>
+
+you can also associate a password to your keys or just press Enter for no password.<br>
+
 ![](./Pasted%20image%201.png)
 
 #### Step 2: Adding it to your github account
