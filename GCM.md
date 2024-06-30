@@ -88,15 +88,14 @@ git clone https://github.com/username/repository.git
 ```
 GCM will prompt you to enter your credentials if they are not already stored.
 ### Managing Credentials
-You can manage your stored credentials through GCM's built-in commands. To view all stored credentials, run:
+GCM does not provide a direct command to list or erase credentials. However, you can manage credentials through the specific credential store you are using (e.g., Windows Credential Manager, macOS Keychain, etc.).
+
+#### To erase a specific credential using Git commands:
+You can manually remove credentials using the Git credential reject command:
 ```sh
-git-credential-manager list
+printf "protocol=https\nhost=github.com\n" | git credential reject
 ```
-To remove a specific credential:
-```sh
-git-credential-manager erase
-```
-You will be prompted to enter the URL for which you want to erase the credentials.
+This command prompts Git to remove the stored credentials for the specified host.
 ### Configuring Credential Store
 If you need to change the credential store, you can set the GCM_CREDENTIAL_STORE environment variable or use the Git configuration setting credential.credentialStore. For example, to use the GPG credential store:
 ```sh
