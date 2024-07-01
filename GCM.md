@@ -184,7 +184,7 @@ multipass exec <instance-name> -- ssh-add ~/.ssh/id_rsa
 ```
 4. Clone a repository:
 ```sh
-multipass exec <instance-name> -- git clone git@github.com:username/repository.git
+multipass exec <instance-name> -- git clone https://github.com/username/name_of_repository
 ```
 #### Working in a Docker Container Using SSH
 To configure GCM in a Docker container using SSH, follow these steps:
@@ -212,5 +212,5 @@ ssh-add /root/.ssh/id_rsa
 ```
 4. Clone a repository:
 ```sh
-git clone git@github.com:username/repository.git
+git clone https://github.com/username/name_of_repository
 ```
