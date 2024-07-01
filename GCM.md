@@ -112,6 +112,55 @@ For .NET tool:
 ```sh
 dotnet tool update -g git-credential-manager
 ```
+### Special Cases
+#### Working in a Multipass Machine Using SSH
+To configure GCM in a Multipass machine using SSH, follow these steps:
+
+1. Install GCM in the Multipass instance:
+```sh
+multipass exec <instance-name> -- sudo apt-get update
+multipass exec <instance-name> -- sudo apt-get install -y git-credential-manager
+```
+2. Configure GCM in the Multipass instance:
+```sh
+multipass exec <instance-name> -- git-credential-manager configure
+```
+3. Ensure SSH key is added:
+```sh
+multipass exec <instance-name> -- ssh-add ~/.ssh/id_rsa
+```
+4. Clone a repository:
+```sh
+multipass exec <instance-name> -- git clone git@github.com:username/repository.git
+```
+#### Working in a Docker Container Using SSH
+To configure GCM in a Docker container using SSH, follow these steps:
+1. Create a Dockerfile:
+```dockerfile
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    apt-get install -y git ssh git-credential-manager && \
+    git-credential-manager configure
+
+COPY .ssh /root/.ssh
+RUN chmod 600 /root/.ssh/id_rsa
+
+CMD ["bash"]
+```
+2. Build and run the Docker container:
+```sh
+docker build -t git-gcm-ssh .
+docker run -it git-gcm-ssh
+```
+3. Ensure SSH key is added:
+```sh
+ssh-add /root/.ssh/id_rsa
+```
+4. Clone a repository:
+```sh
+git clone git@github.com:username/repository.git
+```
 ## Automatic SSH Signing
 To have git automatically sign stuffs such as commits, here are the steps you will have to follow
 - Create and SSH key pair
