@@ -87,6 +87,7 @@ For example, to clone a repository:
 git clone https://github.com/username/repository.git
 ```
 GCM will prompt you to enter your credentials if they are not already stored.
+
 ### Managing Credentials
 GCM does not provide a direct command to list or erase credentials. However, you can manage credentials through the specific credential store you are using (e.g., Windows Credential Manager, macOS Keychain, etc.).
 
@@ -146,9 +147,9 @@ To configure Git to use your key.
 ```sh
 git config --global gpg.format ssh
 ```
-Specify which public SSH key to use as the signing key and change the filename (```~/.ssh/examplekey.pub```) to the location of your key. The filename might differ, depending on how you generated your key: 
+Specify which public SSH key to use as the signing key and change the filename (```~/.ssh/examplekey```) to the location of your key. The filename might differ, depending on how you generated your key: 
 ```sh
-git config --global user.signingkey ~/.ssh/examplekey.pub
+git config --global user.signingkey ~/.ssh/examplekey
 ```
 #### Example try signing a commit if it works
 1. Use the -S flag when signing your commits: 
