@@ -147,7 +147,7 @@ To configure Git to use your key.
 ```sh
 git config --global gpg.format ssh
 ```
-Specify which public SSH key to use as the signing key and change the filename (```~/.ssh/examplekey```) to the location of your key. The filename might differ, depending on how you generated your key: 
+Specify which private SSH key to use as the signing key and change the filename (```~/.ssh/examplekey```) to the location of your key. The filename might differ, depending on how you generated your key: 
 ```sh
 git config --global user.signingkey ~/.ssh/examplekey
 ```
